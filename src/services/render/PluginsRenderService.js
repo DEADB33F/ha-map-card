@@ -11,10 +11,11 @@ export default class PluginsRenderService {
   /** @type {Map} */
   plugins;
 
-  constructor(map, pluginsConfig) {
+  constructor(map, pluginsConfig, hass) {
     this.map = map;
     this.pluginsConfig = pluginsConfig;
     this.plugins = new Map();
+    this.hass = hass;
   }
 
   // Asynchronously load and set up all plugins
