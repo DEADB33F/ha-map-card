@@ -77,7 +77,12 @@ export default class PluginsRenderService {
 
       // Create a new instance of the plugin with provided options
       const PluginClass = pluginFactory(L, Plugin, Logger);
-      const pluginInstance = new PluginClass(this.map, config.name, config.options)
+      const pluginInstance = new PluginClass(
+        this.map,
+        config.name,
+        config.options,
+        this.hass
+      )
 
       if (pluginInstance.destroy === Plugin.prototype.destroy) {
         throw new Error(`Plugin ${config.name} does not implement a destroy() method!`, { cause: 'NotImplemented' });
