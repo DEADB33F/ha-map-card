@@ -1,11 +1,12 @@
 export default class Plugin {
 
   // can be overwritten if necessary
-  constructor(map, name, options = {}) {
+  constructor(map, name, options = {}, hass) {
     // TODO error if map and name are undef?
     this.map = map;
     this.name = name;
     this.options = options;
+    this.hass = hass;
   }
 
   async init() {
