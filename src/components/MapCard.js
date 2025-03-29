@@ -67,7 +67,11 @@ export default class MapCard extends LitElement {
     this.entitiesRenderService = new EntitiesRenderService(this.map, this.hass, this._config.focusFollow, this._config.entities, this.linkedEntityService, this.dateRangeManager, this.historyService, this._isDarkMode());
     this.initialViewRenderService = new InitialViewRenderService(this.map, this._config, this.hass, this.entitiesRenderService);
 
-    this.pluginsRenderService = new PluginsRenderService(this.map, this._config.plugins);
+    this.pluginsRenderService = new PluginsRenderService(
+      this.map,
+      this._config.plugins,
+      this.hass
+    );
 
     try {
       this.pluginsRenderService.setup();
